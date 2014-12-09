@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+</head>
+<body>
+
+  <style>
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .calc {
+    margin: 0 auto;
+
+    border-collapse: collapse;
+    border: 0;
+
+    font-size: 1.4em;
+  }
+
+  .calc td {
+    color: #fff;
+  }
+
+  .calc [data-equal],
+  .calc [data-clear],
+  .calc [data-character],
+  .calc [data-operation] {
+    width: 20%;
+
+    background-color: #333;
+    border-color: #111;
+
+    text-align: center;
+
+    cursor: pointer;
+  }
+
+  .calc [data-equal]:hover,
+  .calc [data-clear]:hover,
+  .calc [data-character]:hover,
+  .calc [data-operation]:hover {
+    background: #222;
+  }
+
+  .calc .calc-area {
+    padding-right: 25px;
+
+    background-color: #f90;
+    border-color: #f70;
+
+    font-size: 1.4em;
+    text-align: right;
+    color: #fff;
+
+    cursor: default;
+  }
+
+  .calc-area:after {
+    margin-left: 5px;
+    border-right: 2px solid #fff;
+    content: " ";
+
+    -webkit-animation: blink .8s linear infinite alternate;
+  }
+
+  @-webkit-keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  </style>
+
+  <table border="1" width="500" height="500" class="calc">
+    <tr>
+      <td colspan="5" class="calc-area">0</td>
+    </tr>
+    <tr>
+      <td data-character>7</td>
+      <td data-character>8</td>
+      <td data-character>9</td>
+      <td data-operation="division">/</td>
+      <td data-clear>Clear</td>
+    </tr>
+    <tr>
+      <td data-character>4</td>
+      <td data-character>5</td>
+      <td data-character>6</td>
+      <td data-operation="multiplication">*</td>
+      <td rowspan="3" data-equal>=</td>
+    </tr>
+    <tr>
+      <td data-character>1</td>
+      <td data-character>2</td>
+      <td data-character>3</td>
+      <td data-operation="subtraction">-</td>
+    </tr>
+    <tr>
+      <td colspan="2" data-character>0</td>
+      <td data-character>,</td>
+      <td data-operation="sum">+</td>
+    </tr>
+  </table>
+
+  <script src="Calc.js"></script>
+  <script>
+  (function (){
+    Calc().init();
+  })();
+  </script>
+</body>
+</html>
